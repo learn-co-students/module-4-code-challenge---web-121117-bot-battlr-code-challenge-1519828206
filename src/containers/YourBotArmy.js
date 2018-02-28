@@ -6,7 +6,7 @@ class YourBotArmy extends React.Component {
 
   renderBots = () => {
     return this.props.enlistedBots.map((bot,id) => {
-      return <BotCard {...bot} thisBot={bot} toggleEnlist={this.props.toggleEnlist} key={bot.id}/>
+      return <BotCard {...bot} thisBot={bot} unenlistBot={this.unenlistBot} viewBotSpecs={this.props.viewBotSpecs} toggleEnlist={this.props.toggleEnlist} key={bot.id}/>
     })
   }
 

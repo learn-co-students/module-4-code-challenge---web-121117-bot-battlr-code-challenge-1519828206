@@ -1,11 +1,13 @@
 import React from "react";
 
 const BotSpecs = props => {
-  let { bot } = props;
+  // const { bot } = props;
+  let bot = props;
+  console.log(props)
 
   let botType;
 
-  switch (bot.bot_class) {
+  switch (props.currentBot.bot_class) {
     case "Assault":
       botType = <i className="icon large circular military" />;
       break;
@@ -19,6 +21,14 @@ const BotSpecs = props => {
       botType = <div />;
   }
 
+  const switchEnlistUnenlist = () => {
+    if (props.enlistedBots.includes(props.selectedBot)) {
+      return 'Unenlist'
+    } else {
+      return 'Enlist'
+    }
+  }
+
   return (
     <div className="ui segment">
       <div className="ui two column centered grid">
@@ -27,17 +37,17 @@ const BotSpecs = props => {
             <img
               alt="oh no!"
               className="ui medium circular image bordered"
-              src={bot.avatar_url}
+              src={props.currentBot.avatar_url}
             />
           </div>
           <div className="four wide column">
-            <h2>Name: {bot.name}</h2>
+            <h2>Name: {props.currentBot.name}</h2>
             <p>
               <strong>Catchphrase: </strong>
-              {bot.catchphrase}
+              {props.currentBot.catchphrase}
             </p>
             <strong>
-              Class: {bot.bot_class} {botType}
+              Class: {props.currentBot.bot_class} {botType}
             </strong>
             <br />
             <div className="ui segment">
@@ -45,36 +55,34 @@ const BotSpecs = props => {
                 <div className="row">
                   <div className="column">
                     <i className="icon large circular red heartbeat" />
-                    <strong>{bot.health}</strong>
+                    <strong>{props.currentBot.health}</strong>
                   </div>
                   <div className="column">
                     <i className="icon large circular yellow lightning" />
-                    <strong>{bot.damage}</strong>
+                    <strong>{props.currentBot.damage}</strong>
                   </div>
                   <div className="column">
                     <i className="icon large circular blue shield" />
-                    <strong>{bot.armor}</strong>
+                    <strong>{props.currentBot.armor}</strong>
                   </div>
                 </div>
               </div>
             </div>
             <button
               className="ui button fluid"
-              onClick={() =>
-                console.log('connect this to a function that shows all bots')
-              }
+              onClick={() => props.resetView()}
             >
               Go Back
             </button>
             <button
               className="ui button fluid"
-              onClick={() =>
-                console.log(
-                  "connect this to a function that adds this bot to your bot army list"
-                )
+              onClick={() => {
+                  props.toggleEnlist(props.currentBot);
+                  props.resetView()
+                }
               }
             >
-              Enlist
+              {switchEnlistUnenlist()}
             </button>
           </div>
         </div>
