@@ -29,10 +29,12 @@ class BotsPage extends React.Component {
 
   enlistBot = (bot) => {
     let oldEnlistedBots = this.state.enlistedBots
-    oldEnlistedBots.push(bot)
-    this.setState ({
-      enlistedBots: oldEnlistedBots
-    })
+    if (!this.state.enlistedBots.includes(bot)) {
+      oldEnlistedBots.push(bot)
+      this.setState ({
+        enlistedBots: oldEnlistedBots
+      })
+    }
   }
 
   unenlistBot = (bot) => {
