@@ -66,6 +66,7 @@ class BotsPage extends React.Component {
     if (this.state.viewBotSpecs === false) {
       return (
         <div>
+          <h2> 🤖 ༼つ ◕_◕ ༽つ 🤙 CHILL BOTS: THE WEB APPLICATION 🤙 ༼ つ ◕_◕ ༽つ 🤖 </h2>
           <YourBotArmy
             {...this.state}
             toggleEnlist={this.toggleEnlist}

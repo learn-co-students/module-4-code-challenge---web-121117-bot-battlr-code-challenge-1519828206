@@ -3,7 +3,6 @@ import React from "react";
 const BotSpecs = props => {
   // const { bot } = props;
   let bot = props;
-  console.log(props)
 
   let botType;
 

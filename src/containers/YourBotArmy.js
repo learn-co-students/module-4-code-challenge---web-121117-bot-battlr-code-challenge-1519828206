@@ -15,8 +15,8 @@ class YourBotArmy extends React.Component {
       <div className="ui segment inverted olive bot-army">
         <div className="ui five column grid">
           <div className="row bot-army-row">
+            {/* <h1>༼ つ ◕_◕ ༽つ Your Bot Army ༼ つ ◕_◕ ༽つ</h1> */}
             {this.renderBots()}
-            Your Bot Army
           </div>
         </div>
       </div>

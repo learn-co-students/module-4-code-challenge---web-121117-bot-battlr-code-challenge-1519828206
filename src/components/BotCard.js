@@ -4,8 +4,6 @@ const BotCard = props => {
   // const { bot } = props;
   const bot = props;
 
-  console.log(props)
-
   let botType;
 
   switch (bot.bot_class) {
